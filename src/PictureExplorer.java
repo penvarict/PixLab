@@ -133,7 +133,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
 	/**
 	 * Method to create and initialize the picture frame
 	 */
-	private void createAndInitPictureFrame() {
+	private void createAndInitbFrame() {
 		pictureFrame = new JFrame(); // create the JFrame
 		pictureFrame.setResizable(true); // allow the user to resize it
 		pictureFrame.getContentPane().setLayout(new BorderLayout()); // use
@@ -796,7 +796,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
 	 * Test Main. It will explore the beach
 	 */
 	public static void main(String args[]) {
-		Picture pix = new Picture("beach.jpg");
+		Picture pix = new Picture("butterfly.jpg");
 		pix.explore();
 	}
 
