@@ -88,7 +88,7 @@ public class IntArrayWorkerTester {
 	public static void main(String[] args) {
 		testSetMatrix();
 		testFillPattern1();
-		// testGetCount();
+		 testGetCount();
 		testGetTotal();
 		testGetTotalNested();
 		// testGetLargest();
