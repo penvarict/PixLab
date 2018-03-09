@@ -210,7 +210,35 @@ public class Picture extends SimplePicture {
 			 }		
 		}
 	}
+	public void copyFrom(Picture fromPic, int fromStartRow, int fromStartCol, int fromEndRow, int fromEndCol, int toStartRow, int toStartCol) {
+		Pixel fromPixel = null;
+		Pixel toPixel = null;
+		Pixel[][] toPixels = this.getPixels2D();
+		Pixel[][] fromPixels = fromPic.getPixels2D();
+		for (int fromRow = fromStartRow, toRow = toStartRow; fromRow < fromEndRow
+				&& toRow < toPixels.length; fromRow++, toRow++) {
+			for (int fromCol = fromStartCol, toCol = toStartCol; fromCol < fromEndCol
+					&& toCol < toPixels[0].length; fromCol++, toCol++) {
+				fromPixel = fromPixels[fromRow][fromCol];
+				toPixel = toPixels[toRow][toCol];
+				toPixel.setColor(fromPixel.getColor());
+			}
+		}
+	}
 
+	public void myCollage() {
+		Picture negateFlower = new Picture("flower2.jpg");
+		negateFlower.negate();
+		Picture mirroredFlower = new Picture("flower2.jpg");
+		mirroredFlower.mirrorHorizontal();
+		Picture onlyBlueFlower = new Picture("flower2.jpg");
+		onlyBlueFlower.keepOnlyBlue();
+
+		this.copy(negateFlower, 0, 0);
+		this.copy(mirroredFlower, 200, 200);
+		this.copy(onlyBlueFlower, 350, 0);
+		this.write("collage.jpg");
+	}
 	/**
 	 * copy from the passed fromPic to the specified startRow and startCol in
 	 * the current picture
