@@ -112,6 +112,22 @@ public class PictureTester
      seagull.explore();
      }
 
+  public static void testCopyFrom() {
+      Picture flower1 = new Picture("flower1.jpg");
+      Picture canvas = new Picture("640x480.jpg");
+      canvas.explore();
+      canvas.copy(flower1,0,0);
+      canvas.explore();
+      canvas.copyFrom(new Picture("flower1.jpg"), 0, 0, 30, 30, 0, 0);
+      canvas.explore();
+    }
+  
+    public static void testMyCollage() {
+      Picture canvas = new Picture("640x480.jpg");
+      canvas.myCollage();
+      canvas.explore();
+    }
+
 
   /** Main method for testing.  Every class can have a main
     * method in Java */
